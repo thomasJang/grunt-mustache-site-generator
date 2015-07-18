@@ -1,6 +1,6 @@
 {
 	"name": "grunt-mustache-site-generator",
-	"description": "The best Grunt plugin ever.",
+	"description": "To resolve include and multi-language with mustache template",
 	"version": "0.1.0",
 	"homepage": "https://github.com/thomasjang/grunt-mustache-generator.gif",
 	"author": {
@@ -40,6 +40,6 @@
 		"mustache": "^2.0.0"
 	},
 	"keywords": [
-		"gruntplugin"
+		"gruntplugin", "mustache"
 	]
 }
