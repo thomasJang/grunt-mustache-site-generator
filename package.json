@@ -1,8 +1,8 @@
 {
 	"name": "grunt-mustache-site-generator",
 	"description": "To resolve include and multi-language with mustache template",
-	"version": "0.1.1",
-	"homepage": "https://github.com/thomasjang/grunt-mustache-generator.gif",
+	"version": "0.1.2",
+	"homepage": "https://www.axisj.com/en/portal/index",
 	"author": {
 		"name": "ThomasJang",
 		"email": "tom@axisj.com",
@@ -10,15 +10,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "hgit://github.com/thomasjang/grunt-mustache-site-generator.gif"
+		"url": "https://github.com/thomasJang/grunt-mustache-site-generator"
 	},
 	"bugs": {
-		"url": "https://github.com/thomasjang/grunt-mustache-site-generator.gif/issues"
+		"url": "https://github.com/thomasJang/grunt-mustache-site-generator/issues"
 	},
 	"licenses": [
 		{
 			"type": "MIT",
-			"url": "https://github.com/thomasjang/grunt-mustache-generator.gif/blob/master/LICENSE-MIT"
+			"url": "https://github.com/thomasJang/grunt-mustache-site-generator/blob/master/LICENSE-MIT"
 		}
 	],
 	"engines": {
