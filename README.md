@@ -37,12 +37,14 @@ grunt.initConfig({
 			},
 			files: [
 				{
-					src:'test/fixtures/**',
-					lang:'test/lang/ko.json',
-					include: {
-						head: 'test/layouts/head.tmpl'
+					layout: 'test/layouts/basic.tmpl',
+					layout_view: 'test/layouts/basic.json',
+					src: 'test/fixtures/**', // contents of layout
+					lang: {
+						"ko":'test/lang/ko.json',
+						"en":'test/lang/en.json'
 					},
-					dest:'test/expected'
+					dest: 'test/expected'
 				}
 			]
 		},
