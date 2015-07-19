@@ -32,28 +32,14 @@ module.exports = function (grunt) {
 		this.files.forEach(function (f) {
 			// Concat specified files.
 
-			/*
-			grunt.log.writeln('dest:' + f.dest);
-			grunt.log.writeln('src:' + f.src);
-			grunt.log.writeln('lang:' + f.lang);
-			grunt.log.writeln('include:' + f.include);
-			*/
-
-
+			var lang_view = {};
 			// lang 파일 검사
-			if (!grunt.file.exists(f.lang)) {
-				grunt.log.warn('Lang file "' + f.lang + '" not found.');
-			}
-			var lang = grunt.file.read(f.lang);
-
-			// include 검사
-			var partial = {};
-			for(var p in f.include){
-				if (!grunt.file.exists(f.include[p])) {
-					grunt.log.warn('include file "' + f.include[p] + '" not found.');
-					break;
+			for(var lang in f.lang){
+				if (!grunt.file.exists(f.lang[lang])) {
+					grunt.log.warn('lang.'+ lang +' file "' + f.lang[lang] + '" not found.');
+				}else{
+					lang_view[lang] = grunt.file.readJSON(f.lang[lang]);
 				}
-				partial[p] = grunt.file.read(f.include[p]);
 			}
 
 			var src = f.src.filter(function (filepath, isFile) {
@@ -66,53 +52,42 @@ module.exports = function (grunt) {
 				}
 			});
 
+			// layout 파일검사
+			if (!grunt.file.exists(f.layout)) {
+				grunt.log.warn('layout file "' + f.layout + '" not found.');
+			}
+			var contents_tmpl = grunt.file.read(f.layout);
+
+			// layout_view 파일검사
+			var layout_view = {};
+			if (f.layout_view != "" && grunt.file.exists(f.layout_view)) {
+				layout_view = grunt.file.readJSON(f.layout_view);
+			}
+
 			src.forEach(function(filepath){
 				//grunt.log.writeln(filepath);
 
-				var tmpl = grunt.file.read(filepath), output, dest_filename;
+				var tmpl = grunt.file.read(filepath),
+				    output, layout_output,
+				    dest_filename;
 
-				/*
-				grunt.log.writeln(tmpl);
-				grunt.log.writeln(lang);
-				grunt.log.writeln(partial);
-				*/
-				output = mustache.render(tmpl, lang, partial);
 
-				/// grunt.log.writeln(output);
+				for(var lang in lang_view){
 
-				// Write the destination file.
+					output = mustache.render(tmpl, lang_view[lang]);
+					layout_output = mustache.render(contents_tmpl, layout_view, {contents:output});
 
-				dest_filename = filepath.substring( Math.max(filepath.lastIndexOf('/'), filepath.lastIndexOf('\\')), filepath.length);
+					// Write the destination file.
+					dest_filename = filepath.substring( Math.max(filepath.lastIndexOf('/'), filepath.lastIndexOf('\\')), filepath.length);
 
-				grunt.file.write(f.dest + dest_filename, output);
-				// Print a success message.
-				 grunt.log.writeln('File "' + f.dest + dest_filename + '" created. ');
+					grunt.file.write(f.dest + '/' + lang + dest_filename, layout_output);
+					// Print a success message.
+					grunt.log.writeln('File "' + f.dest + '/' + lang + dest_filename + '" created. ');
+
+				}
+
 			});
 
-			/*
-			var src = f.src.filter(function (filepath) {
-				// Warn on and remove invalid source files (if nonull was set).
-				if (!grunt.file.exists(filepath)) {
-					grunt.log.warn('Source file "' + filepath + '" not found.');
-					return false;
-				} else {
-					return true;
-				}
-			}).map(function (filepath) {
-				// Read file source.
-				return grunt.file.read(filepath);
-			}).join(grunt.util.normalizelf(options.separator));
-
-			// Handle options.
-			grunt.log.writeln(src);
-			src += options.punctuation;
-
-			// Write the destination file.
-			grunt.file.write(f.dest, src);
-
-			// Print a success message.
-			grunt.log.writeln('File "' + f.dest + '" created. ');
-			*/
 
 		});
 	});

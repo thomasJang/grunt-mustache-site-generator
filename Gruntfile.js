@@ -28,43 +28,20 @@ module.exports = function (grunt) {
 			options: {
 				global:'test'
 			},
-			default_options  : {
-				options: {}, files: {
-					'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-				}
-			},
-			custom_options: {
-				options : {
-					separator: ': ', punctuation: ' !!!'
-				}, files: {
-					'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-				}
-			},
-			expand: {
-				options : {
-					separator: ': ', punctuation: ' !!!'
-				},
-				files: [
-					{
-						'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-					},
-					{
-						'tmp/custom_options/2': ['test/fixtures/testing', 'test/fixtures/123']
-					}
-				]
-			},
 			test: {
 				options : {
 
 				},
 				files: [
 					{
-						src:'test/fixtures/**',
-						lang:'test/lang/ko.json',
-						include: {
-							head: 'test/layouts/head.tmpl'
+						layout: 'test/layouts/basic.tmpl',
+						layout_view: 'test/layouts/basic.json',
+						src: 'test/fixtures/**', // contents of layout
+						lang: {
+							"ko":'test/lang/ko.json',
+							"en":'test/lang/en.json'
 						},
-						dest:'test/expected'
+						dest: 'test/expected'
 					}
 				]
 			}
