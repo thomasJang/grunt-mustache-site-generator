@@ -17,15 +17,9 @@ module.exports = function (grunt) {
 
 	grunt.registerMultiTask('mustache_site_generator', '설명글', function () {
 
-		/*
-		for(var k in this){
-			grunt.log.writeln(k + ":" + this[k]);
-		}
-		*/
-
 		// Merge task-specific and/or target-specific options with these defaults.
 		var options = this.options({
-			punctuation: ':', separator: ', '
+
 		});
 
 		// Iterate over all specified file groups.
@@ -87,7 +81,6 @@ module.exports = function (grunt) {
 				}
 
 			});
-
 
 		});
 	});

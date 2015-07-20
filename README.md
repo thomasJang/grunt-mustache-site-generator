@@ -52,9 +52,29 @@ grunt.initConfig({
 });
 ```
 
-### Options
+### Files
 
-지금 개발중
+#### files.file.layout 
+Type: `String`
+path of layout file
+
+#### files.file.layout_view
+Type: `String`
+Default value: ''
+path of layout view
+
+#### files.file.src
+Type: `String`
+Grunt src
+
+#### files.file.lang
+Type: `Object`
+lang key and path of lang file
+
+#### files.file.dest
+Type: `String`
+path of output 
+It makes the file name of the 'src'. 'output' as a child
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
