@@ -36,8 +36,9 @@ module.exports = function (grunt) {
 				}
 			}
 
-			var src = f.src.filter(function (filepath, isFile) {
-				if(!isFile) return false;
+			var src = f.src.filter(function (filepath) {
+				if( grunt.file.isDir(filepath) ) return false; // 디렉토리 걸러내기
+				//if(!isFile) return false;
 				if (!grunt.file.exists(filepath)) {
 					grunt.log.warn('Source file "' + filepath + '" not found.');
 					return false;
