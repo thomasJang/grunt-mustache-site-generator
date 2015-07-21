@@ -1,6 +1,6 @@
 # grunt-mustache-site-generator
 
-> To resolve include and multi-language with mustache template (mustache 템플릿으로 include, 멀티랭귀지를 해결하기)
+> To resolve layout and multi-language with mustache template (mustache 템플릿으로 include, 멀티랭귀지를 해결하기)
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`

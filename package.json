@@ -1,6 +1,6 @@
 {
 	"name": "grunt-mustache-site-generator",
-	"description": "To resolve include and multi-language with mustache template",
+	"description": "To resolve layout and multi-language with mustache template",
 	"version": "0.1.6",
 	"homepage": "https://www.axisj.com/en/portal/index",
 	"author": {
