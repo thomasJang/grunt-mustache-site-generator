@@ -151,7 +151,7 @@ The source directory of your templates, the directory should be structured like:
 ```
 
 ### Related Projects
-- AXISJ (https://www.axisj.com/axisj)
-- AXU (https://www.axisj.com/axu), (http://axu.axisj.com), (https://github.com/axisj-com/axu)
+- AXISJ (https://www.axisj.com/axisj), (https://github.com/axisj/axisj)
+- AXU (https://www.axisj.com/axu), (http://axu.axisj.com), (https://github.com/axisj/axu)
 - AXU4J (https://github.com/axisj/axu4j)
-- AXIcon (https://www.axisj.com/en/axicon/), (http://axicon.axisj.com), (https://github.com/axisj-com/axicon)
+- AXIcon (https://www.axisj.com/en/axicon/), (http://axicon.axisj.com), (https://github.com/axisj/axicon)
