@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 
 		// Before generating any new files, remove any previously-created files.
 		clean: {
-			tests: ['tmp']
+			tests: ['test/expected']
 		},
 
 		// Configuration to be run (and then tested).
@@ -64,9 +64,6 @@ module.exports = function (grunt) {
 
 	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
 	// plugin's task(s), then test the result.
-	//grunt.registerTask('test', ['clean', 'mustache_site_generator', 'nodeunit']);
-
-	// By default, lint and run all tests.
-	grunt.registerTask('run', ['mustache_site_generator:test']);
+	grunt.registerTask('test', ['clean', 'mustache_site_generator', 'nodeunit']);
 
 };
