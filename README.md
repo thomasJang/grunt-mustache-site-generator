@@ -76,5 +76,82 @@ Type: `String`
 path of output 
 It makes the file name of the 'src'. 'output' as a child
 
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+## Example
+The source directory of your templates, the directory should be structured like:
+```
+.
+├── expected
+├── fixtures
+│   └── sample.html
+└── lang
+│   ├── en.json
+│   └── ko.json
+└── layouts
+    ├── basic.json
+    └── basic.tmpl
+```
+
+* basic.tmpl
+```html
+<html>
+<head>
+	<title>basic layout {{page.title}} {{some}}</title>
+</head>
+<body>
+<!-- include body content -->
+{{>contents}}
+</body>
+</html>
+```
+
+* basic.json
+```json
+{
+	"page":{
+		"title":"테스트입니다."
+	},
+	"some": "somes"
+}
+```
+
+* sample.html
+```html
+<div>{{name}}</div>
+<div>Thomas Jang</div>
+<div>{{age}}</div>
+<div>39</div>
+<div>{{sex}}</div>
+<div>남</div>
+```
+
+* en.json
+```json
+{
+	"name": "name",
+	"age": "age",
+	"sex": "sex"
+}
+```
+
+### Result
+```html
+<html>
+<head>
+	<title>basic layout 테스트입니다. somes</title>
+</head>
+<body>
+<!-- include body content -->
+<div>name</div>
+<div>Thomas Jang</div>
+<div>age</div>
+<div>39</div>
+<div>sex</div>
+<div>남</div></body>
+</html>
+```
+
+### Related Projects
+- AXISJ (https://www.axisj.com/axisj)
+- AXU (https://www.axisj.com/axu), (http://axu.axisj.com), (https://github.com/axisj-com/axu)
+- AXU4J (https://github.com/axisj/axu4j)
+- AXIcon (https://www.axisj.com/en/axicon/), (http://axicon.axisj.com), (https://github.com/axisj-com/axicon)
